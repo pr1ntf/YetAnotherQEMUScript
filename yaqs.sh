@@ -3,7 +3,7 @@
 # Yet Another QEMU Script v0.1
 
 name=netbsd8
-arch=x86_6
+arch=x86_64
 cpu=2
 ram=2048
 disk=netbsd8.qcow2
