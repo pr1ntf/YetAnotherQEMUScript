@@ -3,15 +3,18 @@
 # Yet Another QEMU Script v0.1
 
 name=netbsd8
-ram=2048
-cpu=2
-disk=netbsd8.img
-media=netbsd.iso
-qs=qemu-system-
 arch=x86_6
+cpu=2
+ram=2048
+disk=netbsd8.img
+media=NetBSD-8.0-amd64.iso
+nic=e1000
+netid=mynet0
+qs=qemu-system-
+perm=/usr/bin/doas
 
-${qs}${arch} \
+${perm} ${qs}${arch} \
 	-smp ${cpu} -m ${ram} \
 	-hda ${disk} -cdrom ${media} \
-	-netdev user,id=mynet0,hostfwd=tcp:127.0.0.1:7922-:22 \
-	-device e1000,netdev=mynet0
+	-netdev user,id=${netid},hostfwd=tcp:127.0.0.1:7922-:22 \
+	-device ${nic},netdev=${netid}
