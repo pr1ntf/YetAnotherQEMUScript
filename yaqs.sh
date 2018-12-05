@@ -14,5 +14,4 @@ ${qs}${arch} \
 	-smp ${cpu} -m ${ram} \
 	-hda ${disk} -cdrom ${media} \
 	-netdev user,id=mynet0,hostfwd=tcp:127.0.0.1:7922-:22 \
-	-device e1000,netdev=mynet0 \
-	${name} 
+	-device e1000,netdev=mynet0
